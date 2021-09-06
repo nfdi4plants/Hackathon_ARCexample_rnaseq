@@ -3,8 +3,10 @@
 
 ## Notes
 
-### CWL 
-- not yet implemented 
+- dataset not yet pushed
+- CWL not yet implemented 
+
+
 
 ### isa.assay
 - split GEO SWATE templates into four sheets 
