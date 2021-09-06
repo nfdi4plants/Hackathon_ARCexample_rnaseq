@@ -1,0 +1,7 @@
+"","Sample.Name","Source.Name.x","Characteristics.[Biological.replicate]","Characteristics.[Organism]","Characteristics.[Organism.part]","Characteristics.[watering.exposure]","Source.Name.y","Source.Name.x","Data.File.Name","Source.Name.y","sample","Group"
+"1","CAM_01","CAM_01","rep1","Talinum triangulare","Leaf","12 days drought","CAM_01","CAM_01","DB_097_CAMMD_CAGATC_L001_R1_001.fastq.gz","CAM_01","DB_097","CAM"
+"2","CAM_02","CAM_02","rep2","Talinum triangulare","Leaf","12 days drought","CAM_02","CAM_02","DB_099_CAMMD_CTTGTA_L001_R1_001.fastq.gz","CAM_02","DB_099","CAM"
+"3","CAM_03","CAM_03","rep3","Talinum triangulare","Leaf","12 days drought","CAM_03","CAM_03","DB_103_CAMMD_AGTCAA_L001_R1_001.fastq.gz","CAM_03","DB_103","CAM"
+"4","reC3_01","reC3_01","rep1","Talinum triangulare","Leaf","2 days rewatered","reC3_01","reC3_01","DB_161_reC3MD_GTCCGC_L001_R1_001.fastq.gz","reC3_01","DB_161","reC3"
+"5","reC3_02","reC3_02","rep2","Talinum triangulare","Leaf","2 days rewatered","reC3_02","reC3_02","DB_163_reC3MD_GTGAAA_L001_R1_001.fastq.gz","reC3_02","DB_163","reC3"
+"6","reC3_03","reC3_03","rep3","Talinum triangulare","Leaf","2 days rewatered","reC3_03","reC3_03","DB_165_re-C3MD_GTGAAA_L002_R1_001.fastq.gz","reC3_03","DB_165","reC3"

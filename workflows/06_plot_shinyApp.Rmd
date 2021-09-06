@@ -1,0 +1,108 @@
+---
+title: "Plot RNASeq data mapped against Talinum genome"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r load_data, include=FALSE}
+
+# Load data
+
+ARC_root="~/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005/"
+load(file = paste0(ARC_root, 'runs/05_shinyPrep.RData'))
+
+```
+
+
+```{r plot_setup, message=TRUE, warning=TRUE, include=FALSE}
+
+# Setup plot environment 
+
+required.packages <- c('knitr', 'kableExtra', ## RMarkdown, 
+                      "shiny", "tidyverse", ## data loading and shaping
+                       "RColorBrewer", "shiny" ## plotting
+                       )
+
+for(package in required.packages)
+{
+  print(package)
+  ## Check if package is installed. If not, install
+  if(!package %in% row.names(installed.packages()))
+    {install.packages(package, repos ="https://cran.uni-muenster.de/")}
+  ## Load package
+  library(package, character.only = T)
+}
+
+```
+
+
+```{r, eval=F, echo=FALSE}
+
+
+# Non-interactive test
+
+current_selection <- sample(expression_data$target_id, 10)
+
+plot_set <- subset(expression_data, target_id %in% current_selection)
+
+ggplot(plot_set, aes(x = Group, y = tpm, group = Group)) + 
+    stat_summary(fun = 'mean', geom = 'bar') +
+    geom_point(size = 0.5) +
+    facet_wrap(~ target_id , scales = "free") + 
+    theme_minimal()
+
+```
+
+# Let it shine
+
+```{r shiny_part, echo=FALSE}
+
+sidebarLayout(
+  
+  sidebarPanel(
+    
+    selectizeInput(multiple = T, "target", label = "Select Gene by target id",
+                   choices = available_genes, 
+                   selected = sample(available_genes, size = 1),
+                   options = list(delimiter = ' ',
+                                  create = I("function(input, callback){return {value: input, text: input};}"))
+    ),
+    helpText("You can copy/paste target ids from excel")
+    
+  ),
+  
+  
+  mainPanel(
+    
+    renderPlot({
+      
+      
+      plot_set <- subset(expression_data, target_id %in% input$target)
+      
+      ## Facetted by gene only
+      
+      ggplot(plot_set, aes(x = Group, y = tpm)) + 
+        stat_summary(fun = 'mean', geom = 'bar') +
+        geom_point(size = 0.5) +
+        facet_wrap( ~ target_id, scales = "free") + 
+        theme_minimal() + 
+        theme(aspect.ratio = 1)
+      
+      
+    }),
+    
+    
+  )
+)
+  
+
+
+```
+
+

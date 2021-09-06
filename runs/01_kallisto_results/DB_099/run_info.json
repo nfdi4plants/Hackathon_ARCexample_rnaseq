@@ -1,0 +1,13 @@
+{
+	"n_targets": 31434,
+	"n_bootstraps": 100,
+	"n_processed": 14332278,
+	"n_pseudoaligned": 10066506,
+	"n_unique": 9848811,
+	"p_pseudoaligned": 70.2,
+	"p_unique": 68.7,
+	"kallisto_version": "0.44.0",
+	"index_version": 10,
+	"start_time": "Fri Aug  6 15:49:19 2021",
+	"call": "kallisto quant --single -b 100 -t 30 -l 200 -s 20 -i /Users/dominikbrilhaus/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005//runs/01_kallisto_index -o /Users/dominikbrilhaus/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005//runs/01_kallisto_results/DB_099 /Users/dominikbrilhaus/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005/assays/Talinum_RNASeq_minimal/dataset/DB_099_CAMMD_CTTGTA_L001_R1_001.fastq.gz"
+}
