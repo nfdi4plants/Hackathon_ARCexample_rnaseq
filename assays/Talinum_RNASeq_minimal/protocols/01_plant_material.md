@@ -1,0 +1,3 @@
+# Plant Material and Growth Conditions
+
+Talinum triangulare plants were grown in Miracle-Gro Potting Mix (Miracle- Gro) in “Short-One” treepots, 1.6 l (Stuewe and Sons). The experiment was initiated with 28-d-old plants in a controlled environment chamber (Environ- mental Growth Chambers) maintained under 12 h light (30°C, 37% relative humidity)/12 h dark (22°C) cycles. Photon flux density at leaf level was 425 mmol m22 s21. Irrigation was withheld on day 1 and recommenced on day 14. Leaves were harvested when plants were well-watered as well as after 4, 9, and 12 d of water deprivation and watered for two days following the drought period.
