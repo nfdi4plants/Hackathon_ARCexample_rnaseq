@@ -3,7 +3,7 @@
 #### To be replaced by CWL routine
 ########################
 
-ARC_root=~/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005/
+ARC_root=~/Hackathon_ARCexample_rnaseq/
 cd $ARC_root'workflows/'
 
 # chmod a+x 01_KallistoQuant.sh

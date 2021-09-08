@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Load data
 
-ARC_root="~/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005/"
+ARC_root="~/Hackathon_ARCexample_rnaseq/"
 load(file = paste0(ARC_root, 'runs/05_shinyPrep.RData'))
 
 ```

@@ -4,7 +4,7 @@
 #### To be replaced by CWL routine
 ########################
 
-ARC_root="~/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005/"
+ARC_root="~/Hackathon_ARCexample_rnaseq/"
 setwd(paste0(ARC_root, 'workflows/'))
 
 ########################
@@ -22,26 +22,38 @@ setwd(paste0(ARC_root, 'workflows/'))
 # BiocManager::install("devtools")    # only if devtools not yet installed
 # BiocManager::install("pachterlab/sleuth")
 
-
 library(sleuth)
 library(tidyverse)
 library(jsonlite)
+library(openxlsx)
 
-# assay data
-assay_data <- read.csv(paste0(ARC_root, 'runs/02_assay_data.csv'))
+## read experimental metadata from isa.assay wb
 
-# Pointer to kallisto results
+isa_assay <- paste0(ARC_root, 'assays/Talinum_RNASeq_minimal/assay.isa.xlsx')
+
+assay_data <- merge(readWorkbook(isa_assay, "1SPL01_plants", startRow = 2), 
+                    readWorkbook(isa_assay, "3ASY01_RNASeq", startRow = 2), 
+                    by = "Sample.Name"
+                    )
+
+## remove empty cols
+assay_data <- assay_data[, !apply(assay_data, 2, function(x){sum(is.na(x)) == nrow(assay_data)})]  
+
+# Pointer to kallisto results folder
 base_dir <- paste0(ARC_root, '/runs/01_kallisto_results/')
 
 # A list of paths to the kallisto results indexed by the sample IDs is collated with
 kal_dirs <- dir(base_dir, full.names = T) ## Sleuth requires full paths
 
-s2c <- assay_data[order(assay_data$sample), c('sample', 'Group')]
+s2c <- assay_data[order(assay_data$Sample.Name), c('Sample.Name', "Characteristics.[Photosynthesis.mode]")]
+# For kallisto / sleuth: 's2c' (sample_to_covariates) must contain a column named 'sample'
+colnames(s2c) <- c("sample", "Photosynthesis.mode")
+
 s2c$path <- kal_dirs
 s2c <- s2c[order(s2c$sample), ]
 
 # Build a sleuth object
-so <- sleuth_prep(s2c, ~ Group)
+so <- sleuth_prep(s2c, ~Photosynthesis.mode)
 save(so, file = paste0(ARC_root, 'runs/03_kallisto_sleuthObject.RData'))
 
 # Extract expression tables

@@ -4,7 +4,7 @@
 #### To be replaced by CWL routine
 ########################
 
-ARC_root="~/sciebo/CEPLAS_DM/CEPLAS_ARCs/ARC0005/"
+ARC_root="~/Hackathon_ARCexample_rnaseq/"
 setwd(paste0(ARC_root, 'workflows/'))
 
 ########################
