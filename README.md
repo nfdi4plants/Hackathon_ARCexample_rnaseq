@@ -16,5 +16,16 @@
     - 4COM01_RNASeq
 
 
+### adding raw data via git lfs 
+
+```
+git lfs track "*.fastq.gz"
+```
+
+add data to assays folder
+
+```
+git add assays/Talinum_RNASeq_minimal/dataset/
+```
 
 
