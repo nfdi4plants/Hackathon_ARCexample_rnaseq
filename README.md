@@ -3,7 +3,6 @@
 
 ## Notes
 
-- dataset not yet pushed
 - CWL not yet implemented 
 
 
