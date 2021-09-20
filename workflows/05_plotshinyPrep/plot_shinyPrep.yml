@@ -1,0 +1,6 @@
+rScript:
+  class: File
+  path: ./05_plot_shinyPrep.R
+kallistoResults:
+  class: File
+  path: ./../../runs/run1/03_kallisto_df.csv
